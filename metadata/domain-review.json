@@ -1,0 +1,73 @@
+{
+  "repo": "signal-sys-process-index",
+  "language": "R",
+  "category": "Systems programming",
+  "goal": "Build an R toolkit that studies process behavior through safe and unsafe fixtures, with remediation hints and local-only command execution.",
+  "review_model": {
+    "terms": [
+      "allocation pressure",
+      "dirty state",
+      "guard slack",
+      "layout drift"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "allocation pressure",
+      "signal": 58,
+      "slack": 45,
+      "drag": 29,
+      "confidence": 75,
+      "score": 149,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "dirty state",
+      "signal": 70,
+      "slack": 50,
+      "drag": 18,
+      "confidence": 52,
+      "score": 188,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "guard slack",
+      "signal": 75,
+      "slack": 37,
+      "drag": 22,
+      "confidence": 59,
+      "score": 180,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "layout drift",
+      "signal": 68,
+      "slack": 42,
+      "drag": 20,
+      "confidence": 48,
+      "score": 166,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "allocation pressure",
+      "signal": 54,
+      "slack": 34,
+      "drag": 30,
+      "confidence": 70,
+      "score": 122,
+      "lane": "watch"
+    }
+  ]
+}
